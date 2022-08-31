@@ -9,21 +9,47 @@
 /* Begin PBXBuildFile section */
 		E1F26A3728BF1FB800492CF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A3628BF1FB800492CF2 /* AppDelegate.swift */; };
 		E1F26A3928BF1FB800492CF2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A3828BF1FB800492CF2 /* SceneDelegate.swift */; };
-		E1F26A3B28BF1FB800492CF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A3A28BF1FB800492CF2 /* ViewController.swift */; };
 		E1F26A3E28BF1FB800492CF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F26A3C28BF1FB800492CF2 /* Main.storyboard */; };
 		E1F26A4028BF1FBA00492CF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1F26A3F28BF1FBA00492CF2 /* Assets.xcassets */; };
 		E1F26A4328BF1FBA00492CF2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F26A4128BF1FBA00492CF2 /* LaunchScreen.storyboard */; };
+		E1F26A5228BF237C00492CF2 /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5128BF237C00492CF2 /* MemoListViewController.swift */; };
+		E1F26A5628BF23D400492CF2 /* RealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5528BF23D400492CF2 /* RealmModel.swift */; };
+		E1F26A5928BF242100492CF2 /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5828BF242100492CF2 /* MemoListView.swift */; };
+		E1F26A5B28BF243900492CF2 /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5A28BF243900492CF2 /* MemoListTableViewCell.swift */; };
+		E1F26A5E28BF244F00492CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5D28BF244F00492CF2 /* BaseViewController.swift */; };
+		E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5F28BF245700492CF2 /* BaseView.swift */; };
+		E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */; };
+		E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6828BF2EE800492CF2 /* SnapKit */; };
+		E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6B28BF2EFF00492CF2 /* Toast */; };
+		E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */; };
+		E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7028BF34EF00492CF2 /* identifier.swift */; };
+		E1F26A7328BF3DBE00492CF2 /* Extension+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */; };
+		E1F26A7628BF46F100492CF2 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition.swift */; };
+		E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7928BF4DFA00492CF2 /* Realm */; };
+		E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7B28BF4DFA00492CF2 /* RealmSwift */; };
+		E1F26A7E28BF4E2500492CF2 /* WrtieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E1F26A3328BF1FB800492CF2 /* MemoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1F26A3628BF1FB800492CF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1F26A3828BF1FB800492CF2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E1F26A3A28BF1FB800492CF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1F26A3D28BF1FB800492CF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E1F26A3F28BF1FBA00492CF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1F26A4228BF1FBA00492CF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1F26A4428BF1FBA00492CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1F26A5128BF237C00492CF2 /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
+		E1F26A5528BF23D400492CF2 /* RealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModel.swift; sourceTree = "<group>"; };
+		E1F26A5828BF242100492CF2 /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
+		E1F26A5A28BF243900492CF2 /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
+		E1F26A5D28BF244F00492CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E1F26A5F28BF245700492CF2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E1F26A7028BF34EF00492CF2 /* identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifier.swift; sourceTree = "<group>"; };
+		E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Navigation.swift"; sourceTree = "<group>"; };
+		E1F26A7528BF46F100492CF2 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrtieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */,
+				E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */,
+				E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */,
+				E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +86,138 @@
 		E1F26A3528BF1FB800492CF2 /* MemoList */ = {
 			isa = PBXGroup;
 			children = (
-				E1F26A3628BF1FB800492CF2 /* AppDelegate.swift */,
-				E1F26A3828BF1FB800492CF2 /* SceneDelegate.swift */,
-				E1F26A3A28BF1FB800492CF2 /* ViewController.swift */,
-				E1F26A3C28BF1FB800492CF2 /* Main.storyboard */,
-				E1F26A3F28BF1FBA00492CF2 /* Assets.xcassets */,
-				E1F26A4128BF1FBA00492CF2 /* LaunchScreen.storyboard */,
+				E1F26A4C28BF230300492CF2 /* Utils */,
+				E1F26A4A28BF22F400492CF2 /* Presentation */,
+				E1F26A6528BF299E00492CF2 /* Application */,
+				E1F26A6628BF29E600492CF2 /* Resources */,
 				E1F26A4428BF1FBA00492CF2 /* Info.plist */,
 			);
 			path = MemoList;
+			sourceTree = "<group>";
+		};
+		E1F26A4A28BF22F400492CF2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A5028BF234F00492CF2 /* Writing */,
+				E1F26A4F28BF231B00492CF2 /* MemoList */,
+				E1F26A4B28BF22FF00492CF2 /* PopUp */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		E1F26A4B28BF22FF00492CF2 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PopUp;
+			sourceTree = "<group>";
+		};
+		E1F26A4C28BF230300492CF2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A7428BF46DD00492CF2 /* New Group */,
+				E1F26A6F28BF34DE00492CF2 /* identifier */,
+				E1F26A5C28BF244100492CF2 /* Base */,
+				E1F26A5428BF23C600492CF2 /* Model */,
+				E1F26A4E28BF230E00492CF2 /* Extension */,
+				E1F26A4D28BF230700492CF2 /* CustomView */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E1F26A4D28BF230700492CF2 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		E1F26A4E28BF230E00492CF2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		E1F26A4F28BF231B00492CF2 /* MemoList */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A5128BF237C00492CF2 /* MemoListViewController.swift */,
+				E1F26A5328BF238000492CF2 /* View */,
+			);
+			path = MemoList;
+			sourceTree = "<group>";
+		};
+		E1F26A5028BF234F00492CF2 /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */,
+			);
+			path = Writing;
+			sourceTree = "<group>";
+		};
+		E1F26A5328BF238000492CF2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A5828BF242100492CF2 /* MemoListView.swift */,
+				E1F26A5A28BF243900492CF2 /* MemoListTableViewCell.swift */,
+				E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1F26A5428BF23C600492CF2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A5528BF23D400492CF2 /* RealmModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E1F26A5C28BF244100492CF2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A5D28BF244F00492CF2 /* BaseViewController.swift */,
+				E1F26A5F28BF245700492CF2 /* BaseView.swift */,
+				E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E1F26A6528BF299E00492CF2 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A3628BF1FB800492CF2 /* AppDelegate.swift */,
+				E1F26A3828BF1FB800492CF2 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E1F26A6628BF29E600492CF2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A3C28BF1FB800492CF2 /* Main.storyboard */,
+				E1F26A4128BF1FBA00492CF2 /* LaunchScreen.storyboard */,
+				E1F26A3F28BF1FBA00492CF2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E1F26A6F28BF34DE00492CF2 /* identifier */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A7028BF34EF00492CF2 /* identifier.swift */,
+			);
+			path = identifier;
+			sourceTree = "<group>";
+		};
+		E1F26A7428BF46DD00492CF2 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				E1F26A7528BF46F100492CF2 /* Transition.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +236,12 @@
 			dependencies = (
 			);
 			name = MemoList;
+			packageProductDependencies = (
+				E1F26A6828BF2EE800492CF2 /* SnapKit */,
+				E1F26A6B28BF2EFF00492CF2 /* Toast */,
+				E1F26A7928BF4DFA00492CF2 /* Realm */,
+				E1F26A7B28BF4DFA00492CF2 /* RealmSwift */,
+			);
 			productName = MemoList;
 			productReference = E1F26A3328BF1FB800492CF2 /* MemoList.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +270,11 @@
 				Base,
 			);
 			mainGroup = E1F26A2A28BF1FB800492CF2;
+			packageReferences = (
+				E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = E1F26A3428BF1FB800492CF2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,8 +302,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1F26A3B28BF1FB800492CF2 /* ViewController.swift in Sources */,
+				E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */,
+				E1F26A5228BF237C00492CF2 /* MemoListViewController.swift in Sources */,
+				E1F26A5928BF242100492CF2 /* MemoListView.swift in Sources */,
+				E1F26A7328BF3DBE00492CF2 /* Extension+Navigation.swift in Sources */,
+				E1F26A5B28BF243900492CF2 /* MemoListTableViewCell.swift in Sources */,
+				E1F26A7628BF46F100492CF2 /* Transition.swift in Sources */,
 				E1F26A3728BF1FB800492CF2 /* AppDelegate.swift in Sources */,
+				E1F26A5E28BF244F00492CF2 /* BaseViewController.swift in Sources */,
+				E1F26A5628BF23D400492CF2 /* RealmModel.swift in Sources */,
+				E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */,
+				E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */,
+				E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */,
+				E1F26A7E28BF4E2500492CF2 /* WrtieViewController.swift in Sources */,
 				E1F26A3928BF1FB800492CF2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +470,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,6 +535,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1F26A6828BF2EE800492CF2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		E1F26A6B28BF2EFF00492CF2 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		E1F26A7928BF4DFA00492CF2 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		E1F26A7B28BF4DFA00492CF2 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E1F26A2B28BF1FB800492CF2 /* Project object */;
 }
