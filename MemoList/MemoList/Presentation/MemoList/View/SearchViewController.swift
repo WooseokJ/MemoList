@@ -11,7 +11,7 @@ class SearchViewController: UISearchController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.searchBar.searchTextField.textColor = .white
         
     }
     

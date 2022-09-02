@@ -24,10 +24,14 @@
 		E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */; };
 		E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7028BF34EF00492CF2 /* identifier.swift */; };
 		E1F26A7328BF3DBE00492CF2 /* Extension+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */; };
-		E1F26A7628BF46F100492CF2 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition.swift */; };
+		E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */; };
 		E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7928BF4DFA00492CF2 /* Realm */; };
 		E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7B28BF4DFA00492CF2 /* RealmSwift */; };
-		E1F26A7E28BF4E2500492CF2 /* WrtieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */; };
+		E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */; };
+		E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8028BF6FB900492CF2 /* WriteView.swift */; };
+		E1F26A8328BF77F600492CF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8228BF77F600492CF2 /* Color.swift */; };
+		E1F26A8528BF786800492CF2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8428BF786800492CF2 /* Constants.swift */; };
+		E1F26A8728BF85F700492CF2 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8628BF85F700492CF2 /* RealmRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,8 +52,12 @@
 		E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E1F26A7028BF34EF00492CF2 /* identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifier.swift; sourceTree = "<group>"; };
 		E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Navigation.swift"; sourceTree = "<group>"; };
-		E1F26A7528BF46F100492CF2 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
-		E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrtieViewController.swift; sourceTree = "<group>"; };
+		E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
+		E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		E1F26A8028BF6FB900492CF2 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		E1F26A8228BF77F600492CF2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E1F26A8428BF786800492CF2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1F26A8628BF85F700492CF2 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +123,6 @@
 		E1F26A4C28BF230300492CF2 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E1F26A7428BF46DD00492CF2 /* New Group */,
 				E1F26A6F28BF34DE00492CF2 /* identifier */,
 				E1F26A5C28BF244100492CF2 /* Base */,
 				E1F26A5428BF23C600492CF2 /* Model */,
@@ -128,6 +135,8 @@
 		E1F26A4D28BF230700492CF2 /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				E1F26A8228BF77F600492CF2 /* Color.swift */,
+				E1F26A8428BF786800492CF2 /* Constants.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -135,6 +144,7 @@
 		E1F26A4E28BF230E00492CF2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */,
 				E1F26A7228BF3DBE00492CF2 /* Extension+Navigation.swift */,
 			);
 			path = Extension;
@@ -152,7 +162,8 @@
 		E1F26A5028BF234F00492CF2 /* Writing */ = {
 			isa = PBXGroup;
 			children = (
-				E1F26A7D28BF4E2500492CF2 /* WrtieViewController.swift */,
+				E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */,
+				E1F26A7F28BF6F9800492CF2 /* View */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 		E1F26A5428BF23C600492CF2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E1F26A8628BF85F700492CF2 /* RealmRepository.swift */,
 				E1F26A5528BF23D400492CF2 /* RealmModel.swift */,
 			);
 			path = Model;
@@ -212,12 +224,12 @@
 			path = identifier;
 			sourceTree = "<group>";
 		};
-		E1F26A7428BF46DD00492CF2 /* New Group */ = {
+		E1F26A7F28BF6F9800492CF2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E1F26A7528BF46F100492CF2 /* Transition.swift */,
+				E1F26A8028BF6FB900492CF2 /* WriteView.swift */,
 			);
-			path = "New Group";
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,18 +315,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */,
+				E1F26A8728BF85F700492CF2 /* RealmRepository.swift in Sources */,
 				E1F26A5228BF237C00492CF2 /* MemoListViewController.swift in Sources */,
+				E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */,
 				E1F26A5928BF242100492CF2 /* MemoListView.swift in Sources */,
+				E1F26A8528BF786800492CF2 /* Constants.swift in Sources */,
 				E1F26A7328BF3DBE00492CF2 /* Extension+Navigation.swift in Sources */,
 				E1F26A5B28BF243900492CF2 /* MemoListTableViewCell.swift in Sources */,
-				E1F26A7628BF46F100492CF2 /* Transition.swift in Sources */,
+				E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */,
+				E1F26A8328BF77F600492CF2 /* Color.swift in Sources */,
 				E1F26A3728BF1FB800492CF2 /* AppDelegate.swift in Sources */,
 				E1F26A5E28BF244F00492CF2 /* BaseViewController.swift in Sources */,
 				E1F26A5628BF23D400492CF2 /* RealmModel.swift in Sources */,
 				E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */,
 				E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */,
 				E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */,
-				E1F26A7E28BF4E2500492CF2 /* WrtieViewController.swift in Sources */,
+				E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */,
 				E1F26A3928BF1FB800492CF2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

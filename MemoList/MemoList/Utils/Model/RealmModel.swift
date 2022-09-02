@@ -13,11 +13,13 @@ class RealmModel: Object {
     @Persisted var title: String // 제목
     @Persisted var content: String // 내용
     @Persisted var regDate: Date // 날짜
+    @Persisted var favorite: Bool // 고정핀
     
     convenience init(title: String, content: String, regDate: Date) {
         self.init()
         self.title = title
         self.content = content
         self.regDate = regDate
+        self.favorite = false
     }
 }

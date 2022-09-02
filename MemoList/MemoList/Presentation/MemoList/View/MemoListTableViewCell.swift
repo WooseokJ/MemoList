@@ -20,22 +20,49 @@ class MemoListTableViewCell: BaseTableViewCell {
     }
     
     //MARK: 크기
+    //컨텐츠 라벨
     let contentLabel: UILabel = {
         let label = UILabel()
         return label
+    }()
+    // 제목
+    let title: UILabel = {
+        let label = UILabel()
+        return label
+    }()
+    // 날짜
+    let date: UILabel = {
+       let date = UILabel()
+        return date
     }()
     
     
     //MARK: 테이블 뷰 등록
     override func configure() {
-        [contentLabel].forEach {
+        [contentLabel,title,date].forEach {
             self.addSubview($0)
         }
     }
     //MARK: 위치
     override func setConstraints() {
+        
         contentLabel.snp.makeConstraints {
             $0.center.equalTo(self)
+            $0.bottom.equalTo(0)
+        }
+        
+        title.snp.makeConstraints {
+            $0.top.equalTo(10)
+            $0.leading.equalTo(10)
+            $0.height.equalTo(self.snp.height).multipliedBy(0.2)
+            $0.width.equalTo(100)
+        }
+        
+        date.snp.makeConstraints {
+            $0.top.equalTo(title.snp.bottom).offset(10)
+            $0.leading.equalTo(title.snp.leading)
+            $0.height.equalTo(self.snp.height).multipliedBy(0.2)
+            $0.width.equalTo(100)
         }
         
     }
