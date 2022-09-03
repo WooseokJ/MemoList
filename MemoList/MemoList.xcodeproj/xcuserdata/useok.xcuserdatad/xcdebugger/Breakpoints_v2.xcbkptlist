@@ -14,8 +14,8 @@
             filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,9 +30,89 @@
             filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
             landmarkName = "popupPresent()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6E4823B-0040-4021-B8A9-299BF442CA57"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "tableView(_:titleForHeaderInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80B31001-14D3-4C7A-8575-A7046A5E3A16"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "285"
+            endingLineNumber = "285"
+            landmarkName = "tableView(_:leadingSwipeActionsConfigurationForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "057FDC10-9D6A-4C9A-9B7C-0D374E1D9260"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A21CE91B-660F-4358-97EF-F8FC79BD41E2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F103B4EA-3893-493F-AF41-914E5A7FF5A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "setupSearchController()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

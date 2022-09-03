@@ -20,11 +20,13 @@ class MemoListViewController: BaseViewController {
         super.view = memoListView
     }
     
+    
     //MARK: Realm관련
     let repository = RealmRepository()
     let localRealm = try! Realm()
     var allTasks: Results<RealmModel>! {
         didSet {
+            self.navigationItem.title = "\(allTasks.count)개의 메모"
             memoListView.tableView.reloadData()
             print("tasks 데이터 변경")
         }
@@ -53,6 +55,7 @@ class MemoListViewController: BaseViewController {
         super.viewWillAppear(animated)
         print(#function)
         allTasks = repository.fetch()
+        
     }
     
     
@@ -82,7 +85,7 @@ class MemoListViewController: BaseViewController {
         
         // realm 파일 경로
         print(repository.localRealm.configuration.fileURL!)
-        popupPresent()
+        popupPresent() 
     }
     @objc func buttonClicked() {
         dismiss(animated: true)
@@ -102,7 +105,6 @@ class MemoListViewController: BaseViewController {
     func setupSearchController() {
         let searchController = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = searchController
-        self.navigationItem.title = "100개의 메모"
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
         searchController.searchResultsUpdater = self
@@ -140,13 +142,22 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // 처음화면
         else{
-            
-            guard fixMemo.count == 0 else {
-                // 픽스메모개수 0 개 아니면
+            // 고정메모개수 0개
+            if fixMemo.count == 0 {
+                return 1
+            }
+            // 고정메모개수 0개 아닐떄
+            else {
                 return 2
             }
-            return 1 // 픽스메모개수 0개일떄
         }
+        
+        // 메모개수 0개 , 색션 0 일떄 -> 메모    1
+        // 메모개수 0개 , 색션 1일떄 -> 메모  1
+        // 메모개수 1개, 색션0 일떄 -> 고정된 메모 2
+        
+        // 메모개수 1개, 색션1일떄 -> 고정된, 메모 2
+
     }
     
     
@@ -157,13 +168,19 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             return "\(filteredArr.count)개 찾음"
         }
         
-        //처음화면 타이틀명
+        // 처음화면 타이틀명
         else{
-            guard fixMemo.count == 0 && section != 0 else {
-                // 픽스메모개수 0개 아닐떄 타이틀명
-                return "고정된 메모"
+            print(section)
+            guard section != 0 else {
+                //section == 0 일떄
+                if fixMemo.count == 0 {
+                    return "메모"
+                } else {
+                    return "고정된메모"
+                }
             }
-            return "메모" // 픽스메모개수 0개일떄
+            // section ==1 일떄
+            return "메모"
         }
     }
     
@@ -177,10 +194,23 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         // 처음화면
         else {
-            guard fixMemo.count == 0 else {
-                return fixMemo.count
+            
+            // 메모개수 0개 , 색션 0 일떄 -> 메모
+            //메모개수 1개, 색션0 일떄 -> 고정된메모
+            
+            // 메모개수 0개 , 색션 1일떄 -> 메모
+            // 메모개수 1개, 색션1일떄 -> 고정된, 메모
+            
+            guard section != 0 else {
+                //section == 0 일떄
+                if fixMemo.count == 0 {
+                    return notfixMemo.count
+                } else {
+                    return fixMemo.count
+                }
             }
-            return notfixMemo.count //픽스메모 0개일떄
+            // section ==1 일떄
+            return notfixMemo.count
         }
     }
     
@@ -206,10 +236,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         else{
-            print(fixMemo.description)
-            print(notfixMemo.count)
-            print(indexPath.section, indexPath.row)
-            
             guard indexPath.section != 1 else {
                 // 색션 0 이 메모일떄
                 // selection 0 고정된메모 내용넣기
@@ -256,18 +282,18 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let favorite = UIContextualAction(style: .normal, title: "즐찾") {[self] action, view, completionHandler in
          
-            if indexPath.section != 0 {
+            if indexPath.section == 0 {
                 // 메모 고정핀 누를시
                 // 고정핀이 5개이하일떄
                 guard fixMemo.count+1 <= 5  else {
                     showAlert()
                     return
                 }
-                repository.updateFavorite(item: fixMemo[indexPath.row])
+                repository.updateFavorite(item: notfixMemo[indexPath.row]) // notfix -> fix
                 allTasks = repository.fetch()
             }else{
                 //
-                repository.updateFavorite(item: notfixMemo[indexPath.row])
+                repository.updateFavorite(item: fixMemo[indexPath.row]) // fix -> notfix
                 allTasks = repository.fetch()
             }
             
@@ -303,7 +329,6 @@ extension MemoListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         self.filteredArr = self.allTasks.filter("title CONTAINS[c] %@ OR content CONTAINS[c] %@",text,text)
-        print(filteredArr)
     }
 }
 
