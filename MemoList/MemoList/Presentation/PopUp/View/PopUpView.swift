@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import SnapKit
-class PopUpView: BaseView {
+final class PopUpView: BaseView {
     //MARK: 연결
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +42,7 @@ class PopUpView: BaseView {
         처음 오셧군요!
         환영합니다 :)
         
-        당신만의 메모를 작성하시고
+        당신만의 메모를 작성하고
         관리해보세요!
         """
         textView.font = UIFont.systemFont(ofSize: 22, weight: .bold)

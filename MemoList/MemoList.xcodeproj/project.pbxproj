@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E107FE8328C306F1004EA13B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = E107FE8228C306F1004EA13B /* Zip */; };
+		E107FE8528C32313004EA13B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107FE8428C32313004EA13B /* ViewController.swift */; };
 		E1EE877728C1E4A700FB08B8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877628C1E4A700FB08B8 /* PopUpViewController.swift */; };
 		E1EE877928C1E4BC00FB08B8 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877828C1E4BC00FB08B8 /* PopUpView.swift */; };
 		E1EE878028C21AF000FB08B8 /* FilterEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877F28C21AF000FB08B8 /* FilterEnum.swift */; };
@@ -24,7 +26,6 @@
 		E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */; };
 		E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6828BF2EE800492CF2 /* SnapKit */; };
 		E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6B28BF2EFF00492CF2 /* Toast */; };
-		E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */; };
 		E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7028BF34EF00492CF2 /* identifier.swift */; };
 		E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */; };
 		E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7928BF4DFA00492CF2 /* Realm */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E107FE8428C32313004EA13B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E1EE877628C1E4A700FB08B8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E1EE877828C1E4BC00FB08B8 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
 		E1EE877F28C21AF000FB08B8 /* FilterEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterEnum.swift; sourceTree = "<group>"; };
@@ -54,7 +56,6 @@
 		E1F26A5D28BF244F00492CF2 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		E1F26A5F28BF245700492CF2 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E1F26A7028BF34EF00492CF2 /* identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifier.swift; sourceTree = "<group>"; };
 		E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transition+Extension.swift"; sourceTree = "<group>"; };
 		E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 				E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */,
 				E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */,
 				E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */,
+				E107FE8328C306F1004EA13B /* Zip in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +188,6 @@
 			children = (
 				E1F26A5828BF242100492CF2 /* MemoListView.swift */,
 				E1F26A5A28BF243900492CF2 /* MemoListTableViewCell.swift */,
-				E1F26A6D28BF309E00492CF2 /* SearchViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,6 +217,7 @@
 			children = (
 				E1F26A3628BF1FB800492CF2 /* AppDelegate.swift */,
 				E1F26A3828BF1FB800492CF2 /* SceneDelegate.swift */,
+				E107FE8428C32313004EA13B /* ViewController.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -267,6 +269,7 @@
 				E1F26A6B28BF2EFF00492CF2 /* Toast */,
 				E1F26A7928BF4DFA00492CF2 /* Realm */,
 				E1F26A7B28BF4DFA00492CF2 /* RealmSwift */,
+				E107FE8228C306F1004EA13B /* Zip */,
 			);
 			productName = MemoList;
 			productReference = E1F26A3328BF1FB800492CF2 /* MemoList.app */;
@@ -300,6 +303,7 @@
 				E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = E1F26A3428BF1FB800492CF2 /* Products */;
 			projectDirPath = "";
@@ -328,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1F26A6E28BF309E00492CF2 /* SearchViewController.swift in Sources */,
 				E1F26A8728BF85F700492CF2 /* RealmRepository.swift in Sources */,
 				E1F26A5228BF237C00492CF2 /* MemoListViewController.swift in Sources */,
 				E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */,
@@ -346,6 +349,7 @@
 				E1EE877728C1E4A700FB08B8 /* PopUpViewController.swift in Sources */,
 				E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */,
 				E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */,
+				E107FE8528C32313004EA13B /* ViewController.swift in Sources */,
 				E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */,
 				E1F26A3928BF1FB800492CF2 /* SceneDelegate.swift in Sources */,
 			);
@@ -569,6 +573,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -596,6 +608,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E107FE8228C306F1004EA13B /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
 		E1F26A6828BF2EE800492CF2 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */;

@@ -10,10 +10,6 @@
           "value" : "light"
         }
       ],
-      "color" : {
-        "platform" : "ios",
-        "reference" : "labelColor"
-      },
       "idiom" : "universal"
     },
     {
@@ -23,10 +19,6 @@
           "value" : "dark"
         }
       ],
-      "color" : {
-        "platform" : "osx",
-        "reference" : "controlBackgroundColor"
-      },
       "idiom" : "universal"
     }
   ],

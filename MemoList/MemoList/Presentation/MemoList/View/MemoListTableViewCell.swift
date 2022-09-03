@@ -63,10 +63,10 @@ class MemoListTableViewCell: BaseTableViewCell {
         }
         
         date.snp.makeConstraints {
-            $0.top.equalTo(title.snp.bottom).offset(10)
+            $0.top.equalTo(title.snp.bottom).offset(20)
             $0.leading.equalTo(title.snp.leading)
-            $0.height.equalTo(self.snp.height).multipliedBy(0.2)
-            $0.width.equalTo(100)
+            $0.height.equalTo(self.snp.height).multipliedBy(0.25)
+            $0.width.equalTo(200)
         }
         
     }

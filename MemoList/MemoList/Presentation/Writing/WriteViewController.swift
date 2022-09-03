@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class WriteViewController: BaseViewController {
+final class WriteViewController: BaseViewController ,UITextFieldDelegate {
     
     let writeView = WriteView()
     
@@ -25,22 +25,33 @@ class WriteViewController: BaseViewController {
     
     var select: Bool? = nil // 작성하기,수정하기 판단
     var objectid: ObjectId?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.writeView.textView.becomeFirstResponder() //키보드 자동으로 띄우기
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        writeView.textView.becomeFirstResponder() //키보드 자동으로 띄우기
+        self.navigationController?.navigationBar.tintColor = Constants.button.color
+        self.navigationItem.largeTitleDisplayMode = .never
         guard select == false else {
             // 수정하기화면
             let confirm = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tapModify))
             let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tapShared))
+            confirm.tintColor = Constants.button.color
+            shared.tintColor = Constants.button.color
             navigationItem.rightBarButtonItems = [confirm,shared]
             navigationItem.rightBarButtonItem?.tintColor = Constants.button.color
+            
             return
         }
         //작성하기화면
         let confirm = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(tapConfirm))
         let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tapShared))
+        confirm.tintColor = Constants.button.color
+        shared.tintColor = Constants.button.color
         navigationItem.rightBarButtonItems = [confirm,shared]
-        navigationItem.rightBarButtonItem?.tintColor = Constants.button.color
     }
     
     
@@ -81,11 +92,10 @@ class WriteViewController: BaseViewController {
     
     //공유하기버튼클릭
     @objc func tapShared() {
-        
+        backupButtonClickedStart()
     }
     //수정하기 버튼 클릭
     @objc func tapModify() {
-        
         let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         // 제목X 내용 X
         guard text.count != 0 else {
@@ -98,25 +108,26 @@ class WriteViewController: BaseViewController {
             return
         }
         let content = text[1...text.count-1].joined()
-   
+
         // 제목,내용 O
         modifyData(title: String(text[0]), content: content, text: text)
-        
+
         //수정하기로 데이터 수정
         func modifyData(title: String, content: String, text:  [String.SubSequence]) {
             guard let objectid = objectid else {
                 return
             }
-            print(objectid)
+
             do {
                 try localRealm.write {
                     localRealm.create(RealmModel.self, value: ["objectId": objectid, "title": title, "content":content, "regDate": Date()], update: .modified)
-                    
+
                 }
             } catch let error {
                 print(error)
             }
             self.navigationController?.popViewController(animated: true)
+
         }
     }
 }

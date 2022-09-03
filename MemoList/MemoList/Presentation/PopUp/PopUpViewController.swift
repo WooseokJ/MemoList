@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PopUpViewController: BaseViewController {
+final class PopUpViewController: BaseViewController {
     //MARK: 뷰 가져오기
     let popupView = PopUpView()
     

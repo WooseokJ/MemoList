@@ -25,7 +25,6 @@ class MemoListView: BaseView {
     }
     
     //MARK: 크기
-    let searchbar = SearchViewController()
     
     //테이블뷰
     lazy var tableView: UITableView = {
@@ -45,9 +44,10 @@ class MemoListView: BaseView {
     override func setConstraints() {
         // 테이블뷰
         tableView.snp.makeConstraints {
-            $0.top.equalTo(220)
+            $0.top.equalTo(0)
             $0.trailing.leading.equalTo(0)
-            $0.bottom.equalTo(-100)
+            $0.bottom.equalTo(0)
+            
         }
     }
 }
