@@ -8,13 +8,14 @@
 import UIKit
 import SnapKit
 class SearchViewController: UISearchController {
+   
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.searchBar.searchTextField.textColor = .white
-        
+        self.searchBar.placeholder = "검색"
     }
-    
+
 
 
 }

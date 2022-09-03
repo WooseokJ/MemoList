@@ -23,11 +23,13 @@ class MemoListTableViewCell: BaseTableViewCell {
     //컨텐츠 라벨
     let contentLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     // 제목
     let title: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 0
         return label
     }()
     // 날짜
@@ -47,7 +49,9 @@ class MemoListTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         
         contentLabel.snp.makeConstraints {
-            $0.center.equalTo(self)
+            $0.leading.equalTo(date.snp.trailing).offset(20)
+            $0.trailing.equalTo(-10)
+            $0.top.equalTo(date.snp.top)
             $0.bottom.equalTo(0)
         }
         
@@ -55,7 +59,7 @@ class MemoListTableViewCell: BaseTableViewCell {
             $0.top.equalTo(10)
             $0.leading.equalTo(10)
             $0.height.equalTo(self.snp.height).multipliedBy(0.2)
-            $0.width.equalTo(100)
+            $0.trailing.equalTo(contentLabel.snp.trailing)
         }
         
         date.snp.makeConstraints {

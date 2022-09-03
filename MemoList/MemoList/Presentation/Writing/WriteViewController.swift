@@ -24,13 +24,13 @@ class WriteViewController: BaseViewController {
     }
     
     var select: Bool? = nil // 작성하기,수정하기 판단
-    var tag: Int?
+    var objectid: ObjectId?
     override func viewDidLoad() {
         super.viewDidLoad()
         writeView.textView.becomeFirstResponder() //키보드 자동으로 띄우기
         guard select == false else {
             // 수정하기화면
-            let confirm = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tapConfirm))
+            let confirm = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tapModify))
             let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tapShared))
             navigationItem.rightBarButtonItems = [confirm,shared]
             navigationItem.rightBarButtonItem?.tintColor = Constants.button.color
@@ -50,22 +50,20 @@ class WriteViewController: BaseViewController {
         let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         
         // 제목X 내용 X
-        guard text.count != 0 else {
+        guard text.count != 0  else {
             addData(title: "", content: "")
             return
         }
-        
         // 제목 O 내용 X
-        guard text.count != 1 && text[1] != nil else {
+        guard text.count != 1 else {
             addData(title: String(text[0]), content: "")
             return
         }
         
+        let content = text[1...text.count-1].joined()
+        
         // 제목,내용 O
-        let content = text[1].replacingOccurrences(of: "\n", with: " ")
         addData(title: String(text[0]), content: content)
-        
-        
         
     }
     // 작성하기로 데이터 삽입
@@ -87,35 +85,33 @@ class WriteViewController: BaseViewController {
     }
     //수정하기 버튼 클릭
     @objc func tapModify() {
-        let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         
+        let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         // 제목X 내용 X
         guard text.count != 0 else {
-            modifyData(title: "", content: "", text: text )
+            modifyData(title: "", content: "", text: text)
             return
         }
-        
         // 제목 O 내용 X
-        guard text.count != 1 && text[1] != nil else {
-            modifyData(title: String(text[0]), content: "", text: text )
+        guard text.count != 1 else {
+            modifyData(title: String(text[0]), content: "", text: text)
             return
         }
-        
+        let content = text[1...text.count-1].joined()
+   
         // 제목,내용 O
-        let content = text[1].replacingOccurrences(of: "\n", with: " ")
-        modifyData(title: String(text[0]), content: content, text: text )
-        
+        modifyData(title: String(text[0]), content: content, text: text)
         
         //수정하기로 데이터 수정
-        func modifyData(title: String, content: String, text:  [String.SubSequence] ) {
+        func modifyData(title: String, content: String, text:  [String.SubSequence]) {
+            guard let objectid = objectid else {
+                return
+            }
+            print(objectid)
             do {
                 try localRealm.write {
-                    guard let tag = tag else {
-                        return
-                    }
-                    allTasks[tag].title = String(text[0])
-                    allTasks[tag].content = String(text[1])
-                    allTasks[tag].regDate = Date()
+                    localRealm.create(RealmModel.self, value: ["objectId": objectid, "title": title, "content":content, "regDate": Date()], update: .modified)
+                    
                 }
             } catch let error {
                 print(error)

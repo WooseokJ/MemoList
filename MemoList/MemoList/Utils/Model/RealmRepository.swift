@@ -19,12 +19,12 @@ class RealmRepository: RealmRepositoryType {
 
 
     func fetch() -> Results<RealmModel> {
-
         return localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false)
     }
     
     func updateFavorite(item: RealmModel) {
         try! self.localRealm.write {
+            
             item.favorite.toggle()
         }
     }
