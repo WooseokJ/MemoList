@@ -439,22 +439,22 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     // 셀 클릭시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.isFiltering {
-            modifyTextView(object: filteredArr, tag: indexPath.row)
+            modifyTextView(object: filteredArr, tag: indexPath.row,backTitle: "검색")
         }
         else{
             if indexPath.section == 0 {
-                if fixMemo.count == 0{modifyTextView(object: notfixMemo, tag: indexPath.row)}
-                else{modifyTextView(object: fixMemo, tag: indexPath.row)}
+                if fixMemo.count == 0{modifyTextView(object: notfixMemo, tag: indexPath.row, backTitle: "메모")}
+                else{modifyTextView(object: fixMemo, tag: indexPath.row,backTitle: "메모")}
                 return
             }
-            else {modifyTextView(object: notfixMemo, tag: indexPath.row)}
+            else {modifyTextView(object: notfixMemo, tag: indexPath.row,backTitle: "메모")}
         }
     }
     // 셀 클식시 textview 함수구현
-    func modifyTextView(object: Results<RealmModel>, tag: Int) {
+    func modifyTextView(object: Results<RealmModel>, tag: Int, backTitle: String) {
         let vc = WriteViewController()
         transition(vc, transitionStyle: .push)
-        navigationItem.backButtonTitle = "검색"
+        navigationItem.backButtonTitle = backTitle
         vc.select = true //수정하기
         vc.writeView.textView.text = object[tag].title + "\n" + object[tag].content
         vc.objectid = object[tag].objectId
