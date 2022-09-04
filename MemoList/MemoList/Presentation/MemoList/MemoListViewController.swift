@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import SwiftUI
+import SnapKit
 
 final class MemoListViewController: BaseViewController {
     
@@ -36,8 +37,19 @@ final class MemoListViewController: BaseViewController {
         }
     }
     
-    var fixMemo =  RealmRepository().localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false).filter("favorite = true")
-    var notfixMemo = RealmRepository().localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false).filter("favorite = false")
+
+    var fixMemo: Results<RealmModel>! {
+        didSet{
+            print("fixMemo")
+            memoListView.tableView.reloadData()
+        }
+    }
+    var notfixMemo: Results<RealmModel>! {
+        didSet{
+            print("notfixMemo")
+            memoListView.tableView.reloadData()
+        }
+    }
     
     //MARK: 서치바 필터관련
     var filteredArr:  Results<RealmModel>! {
@@ -58,17 +70,15 @@ final class MemoListViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print(#function)
+        //서치바+네비바
+        setupSearchController()
         allTasks = repository.fetch()
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.searchController = searchController
-        navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.searchBar.placeholder = "검색"
         // toolbar 관련
-        self.navigationController?.isToolbarHidden = false
         writeButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(tapWriteButton))
         writeButton.tintColor = Constants.button.color
         var items = [UIBarButtonItem]()
@@ -80,10 +90,11 @@ final class MemoListViewController: BaseViewController {
         }
         
         
-        
         self.toolbarItems = items
-        //서치바+네비바
-        setupSearchController()
+        
+        fixMemo = RealmRepository().fixFetch()
+        notfixMemo = RealmRepository().notFixFetch()
+        
         //테이블뷰 연결
         memoListView.tableView.delegate = self
         memoListView.tableView.dataSource = self
@@ -106,18 +117,20 @@ final class MemoListViewController: BaseViewController {
         let appearance = UINavigationBarAppearance()
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        
-        
+        navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = UIColor(named: "bgColor") //다크모드대응
         vc.select = false //작성하기
     }
     
     // 서치바+네비바
     func setupSearchController() {
+        searchController.searchBar.placeholder = "검색"
+        searchController.searchResultsUpdater = self
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationController?.isToolbarHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.searchResultsUpdater = self
+        self.navigationController?.toolbar.backgroundColor = UIColor(named: "bgColor") //다크모드대응
+        view.backgroundColor = UIColor(named: "bgColor")
     }
     
     //팝업 화면 띄우기
@@ -206,78 +219,100 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.backgroundColor = .systemGray2
+        cell.selectionStyle = .none
         
         if self.isFiltering {
-            return searchColorText(object:  filteredArr, index: indexPath.row, cell: cell)
+            cell.contentLabel.attributedText = searchContentColor(object:  filteredArr, index: indexPath.row, cell: cell)
+            cell.title.attributedText = searchTitleText(object:  filteredArr, index: indexPath.row, cell: cell)
+            cell.selectionStyle = .none
+
+            return cell
         }
         
         else{
             if indexPath.section == 0  {
                 if fixMemo.count == 0 {
+                    cell.contentLabel.attributedText = searchContentColor(object:  notfixMemo, index: indexPath.row, cell: cell)
+                    cell.title.attributedText = searchTitleText(object:  notfixMemo, index: indexPath.row, cell: cell)
                     cell.date.text = dateCalc(date: notfixMemo[indexPath.row].regDate)
-                    return searchColorText(object:  notfixMemo, index: indexPath.row, cell: cell)
+                    cell.selectionStyle = .none
+
+                    return cell
                 }
                 else{
+                    cell.contentLabel.attributedText = searchContentColor(object:  fixMemo, index: indexPath.row, cell: cell)
+                    cell.title.attributedText = searchTitleText(object:  fixMemo, index: indexPath.row, cell: cell)
                     cell.date.text = dateCalc(date: fixMemo[indexPath.row].regDate)
-                    return searchColorText(object:  fixMemo, index: indexPath.row, cell: cell)
+                    cell.selectionStyle = .none
+
+                    return cell
                 }
             }
             else{
+                cell.contentLabel.attributedText = searchContentColor(object:  notfixMemo, index: indexPath.row, cell: cell)
+                cell.title.attributedText = searchTitleText(object:  notfixMemo, index: indexPath.row, cell: cell)
                 cell.date.text = dateCalc(date: notfixMemo[indexPath.row].regDate)
-                return searchColorText(object:  notfixMemo, index: indexPath.row, cell: cell)
+                cell.selectionStyle = .none
+
+                return cell
 
             }
         }
     }
-    func searchColorText(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  MemoListTableViewCell {
-        let filtering = object[index]
-        //MARK: 컨텐츠(내용)
-        let content: String = filtering.content
-        
-        let contentString = NSMutableAttributedString(string: content)
-        cell.contentLabel.text = filtering.content
-        cell.title.text = filtering.title
-        cell.date.text = dateCalc(date: filtering.regDate)
-        
-        var contentFirstIndex: Int = 0
-        if let contentFirstRange = content.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {
-            contentFirstIndex = content.distance(from: content.startIndex, to: contentFirstRange.lowerBound)
-            contentString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: contentFirstIndex, length: searchController.searchBar.text?.count ?? 0))
-        }
+    //MARK: 검색창 따라 셀 제목,내용 색상변화
+    func searchTitleText(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
         //MARK: 타이틀(제목)
-        let title: String = filtering.title
+        let title: String = object[index].title
         let titleString = NSMutableAttributedString(string: title)
         var titleFirstIndex: Int = 0
         if let titleFirstRange = title.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {
             titleFirstIndex = title.distance(from: title.startIndex, to: titleFirstRange.lowerBound)
             titleString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: titleFirstIndex, length: searchController.searchBar.text?.count ?? 0))
         }
-
-        cell.contentLabel.attributedText = contentString
-        cell.title.attributedText = titleString
-        cell.selectionStyle = .none
-        return cell
+        return titleString
     }
+    
+    func searchContentColor(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
+        //MARK: 컨텐츠(내용)
+        let content: String = object[index].content
+        let contentString = NSMutableAttributedString(string: content)
+        var contentFirstIndex: Int = 0
+        if let contentFirstRange = content.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {
+            contentFirstIndex = content.distance(from: content.startIndex, to: contentFirstRange.lowerBound)
+            contentString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: contentFirstIndex, length: searchController.searchBar.text?.count ?? 0))
+        }
+        return contentString
+    }
+    
     
     // 날짜 계산
     func dateCalc(date: Date) -> String {
-        let dateformat = DateFormatter()
-        dateformat.locale = Locale(identifier: "ko_KR")
-        
+        let dateFormat = DateFormatter()
+        dateFormat.locale = Locale(identifier: "ko_KR")// 한국 시간 지정
+        dateFormat.timeZone = TimeZone(abbreviation: "KST") // 한국 시간대 지정
         let current = Calendar.current
-        if current.isDateInToday(date) { //오늘 날짜이면
-            dateformat.dateFormat  = "a hh:ss"
-            return dateformat.string(from: date)
+       
+        // 오늘 날짜이면
+        if current.isDateInToday(date) {
+            dateFormat.dateFormat  = "a hh:mm:ss"
+            return dateFormat.string(from: date)
         }
-        else if current.isDateInWeekend(date) { //이번주 이면
-            dateformat.dateFormat  = "EEEE"
-            return dateformat.string(from: date)
-        }
-        else { //그이외이면
-            dateformat.dateFormat  = "yyyy:mm:dd a hh:ss"
-            return dateformat.string(from: date)
+        //MARK: 이번주구하기
+        let nextWeekSunday = Calendar.current.nextWeekend(startingAfter: date)!.end // 다음주 일요일 시간
+        var thisWeekmonday = Date(timeInterval: (-(86400) * 14) + 32400, since: nextWeekSunday) //이번주 월요일 밤12시
+        var nextWeekMonday =  Date(timeInterval: 86400 * 7 , since: thisWeekmonday).timeIntervalSince1970 // 다음주 월요일 오전12시
+
+        // 이번주월요일~ 이번주일요일(다음주 월요일 오전12시까지) 에 작성한날짜가 포함되있나?
+        if current.dateIntervalOfWeekend(containing: date, start: &thisWeekmonday, interval: &nextWeekMonday) {
+            dateFormat.dateFormat  = "EEEE"
+            return dateFormat.string(from: date)
         }
         
+        // 그이외이면
+        else {
+            dateFormat.dateFormat  = "yyyy.MM.dd a hh:mm"
+            return dateFormat.string(from: date)
+        }
     }
     
     // 테이블뷰 색션 텍스트 정보
@@ -326,7 +361,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         alert.addAction(delete)
         self.present(alert, animated: true)
     }
-    //오른쪽 스와이핑(고정핀 고정)
+    //MARK: 오른쪽 스와이핑(고정핀 고정)
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let favorite = UIContextualAction(style: .normal, title: "즐찾") {[self] action, view, completionHandler in
@@ -337,15 +372,14 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                     return
                 }
                 if fixMemo.count == 0 {
-                    repository.updateFavorite(item: filteredArr[indexPath.row]) // notfix -> fix
-                    allTasks = repository.fetch()
+                    repository.updateFavorite(item: filteredArr[indexPath.row])
+                    notfixMemo = repository.notFixFetch()
                 }
                 else{
-                    repository.updateFavorite(item: filteredArr[indexPath.row]) // fix -> notfix
-                    allTasks = repository.fetch()
+                    repository.updateFavorite(item: filteredArr[indexPath.row])
+                    fixMemo = repository.fixFetch()
                 }
             }
-            
             else{
                 if indexPath.section == 0 {
                     // 고정핀이 5개이하일떄
@@ -354,13 +388,13 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                         return
                     }
                     if fixMemo.count == 0 {
-                        
-                        repository.updateFavorite(item: notfixMemo[indexPath.row]) // notfix -> fix
-                        allTasks = repository.fetch()
+                        repository.updateFavorite(item: notfixMemo[indexPath.row])
+                        fixMemo = repository.fixFetch()
                     }
                     else{
-                        repository.updateFavorite(item: fixMemo[indexPath.row]) // fix -> notfix
-                        allTasks = repository.fetch()
+                        repository.updateFavorite(item: fixMemo[indexPath.row])
+                        notfixMemo = repository.notFixFetch()
+                        print(notfixMemo)
                     }
                 }
                 else{
@@ -369,10 +403,10 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                         showAlert(message: "고정핀 5개 이상 불가")
                         return
                     }
-                    repository.updateFavorite(item: notfixMemo[indexPath.row]) // notfix -> fix
-                    allTasks = repository.fetch()
-                }
+                    repository.updateFavorite(item: notfixMemo[indexPath.row])}
+                    fixMemo = repository.fixFetch()
             }
+//            allTasks = repository.fetch()
         }
         
         if self.isFiltering {
@@ -401,6 +435,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
     // 셀 클릭시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.isFiltering {
@@ -408,17 +443,11 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else{
             if indexPath.section == 0 {
-                if fixMemo.count == 0{
-                    modifyTextView(object: notfixMemo, tag: indexPath.row)
-                }
-                else{
-                    modifyTextView(object: fixMemo, tag: indexPath.row)
-                }
+                if fixMemo.count == 0{modifyTextView(object: notfixMemo, tag: indexPath.row)}
+                else{modifyTextView(object: fixMemo, tag: indexPath.row)}
                 return
             }
-            else {
-                modifyTextView(object: notfixMemo, tag: indexPath.row)
-            }
+            else {modifyTextView(object: notfixMemo, tag: indexPath.row)}
         }
     }
     // 셀 클식시 textview 함수구현

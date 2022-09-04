@@ -22,16 +22,15 @@ class RealmRepository: RealmRepositoryType {
         return localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false)
     }
     func fixFetch() -> Results<RealmModel> {
-        return localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false)
+        return localRealm.objects(RealmModel.self).filter("favorite = true")
     }
     func notFixFetch() -> Results<RealmModel> {
-        return localRealm.objects(RealmModel.self).sorted(byKeyPath: "regDate", ascending: false)
+        return localRealm.objects(RealmModel.self).filter("favorite = false")
     }
     
     
     func updateFavorite(item: RealmModel) {
-        try! self.localRealm.write {
-            
+        try! self.localRealm.write {   
             item.favorite.toggle()
         }
     }

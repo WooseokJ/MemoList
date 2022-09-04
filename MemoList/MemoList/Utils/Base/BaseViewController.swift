@@ -78,54 +78,5 @@ class BaseViewController: UIViewController {
 }
 
 extension MemoListViewController {
-//    func searchColorText(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  MemoListTableViewCell {
-//        let filtering = object[index]
-//        //MARK: 컨텐츠(내용)
-//        let content: String = filtering.content
-//        
-//        let contentString = NSMutableAttributedString(string: content)
-//        cell.contentLabel.text = filtering.content
-//        cell.title.text = filtering.title
-//        cell.date.text = dateCalc(date: filtering.regDate)
-//        
-//        var contentFirstIndex: Int = 0
-//        if let contentFirstRange = content.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {
-//            contentFirstIndex = content.distance(from: content.startIndex, to: contentFirstRange.lowerBound)
-//            contentString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: contentFirstIndex, length: searchController.searchBar.text?.count ?? 0))
-//        }
-//        //MARK: 타이틀(제목)
-//        let title: String = filtering.title
-//        let titleString = NSMutableAttributedString(string: title)
-//        var titleFirstIndex: Int = 0
-//        if let titleFirstRange = title.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {
-//            titleFirstIndex = title.distance(from: title.startIndex, to: titleFirstRange.lowerBound)
-//            titleString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: titleFirstIndex, length: searchController.searchBar.text?.count ?? 0))
-//        }
-//
-//        cell.contentLabel.attributedText = contentString
-//        cell.title.attributedText = titleString
-//        cell.selectionStyle = .none
-//        return cell
-//    }
-//    
-//    // 날짜 계산
-//    func dateCalc(date: Date) -> String {
-//        let dateformat = DateFormatter()
-//        dateformat.locale = Locale(identifier: "ko_KR")
-//        
-//        let current = Calendar.current
-//        if current.isDateInToday(date) { //오늘 날짜이면
-//            dateformat.dateFormat  = "a hh:ss"
-//            return dateformat.string(from: date)
-//        }
-//        else if current.isDateInWeekend(date) { //이번주 이면
-//            dateformat.dateFormat  = "EEEE"
-//            return dateformat.string(from: date)
-//        }
-//        else { //그이외이면
-//            dateformat.dateFormat  = "yyyy:mm:dd a hh:ss"
-//            return dateformat.string(from: date)
-//        }
-//        
-//    }
+
 }

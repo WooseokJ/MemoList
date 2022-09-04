@@ -25,7 +25,6 @@
 		E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5F28BF245700492CF2 /* BaseView.swift */; };
 		E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */; };
 		E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6828BF2EE800492CF2 /* SnapKit */; };
-		E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6B28BF2EFF00492CF2 /* Toast */; };
 		E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7028BF34EF00492CF2 /* identifier.swift */; };
 		E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */; };
 		E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7928BF4DFA00492CF2 /* Realm */; };
@@ -72,7 +71,6 @@
 			files = (
 				E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */,
 				E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */,
-				E1F26A6C28BF2EFF00492CF2 /* Toast in Frameworks */,
 				E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */,
 				E107FE8328C306F1004EA13B /* Zip in Frameworks */,
 			);
@@ -266,7 +264,6 @@
 			name = MemoList;
 			packageProductDependencies = (
 				E1F26A6828BF2EE800492CF2 /* SnapKit */,
-				E1F26A6B28BF2EFF00492CF2 /* Toast */,
 				E1F26A7928BF4DFA00492CF2 /* Realm */,
 				E1F26A7B28BF4DFA00492CF2 /* RealmSwift */,
 				E107FE8228C306F1004EA13B /* Zip */,
@@ -301,7 +298,6 @@
 			mainGroup = E1F26A2A28BF1FB800492CF2;
 			packageReferences = (
 				E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */,
 			);
@@ -589,14 +585,6 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
 		E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -617,11 +605,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		E1F26A6B28BF2EFF00492CF2 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E1F26A6A28BF2EFF00492CF2 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
 		};
 		E1F26A7928BF4DFA00492CF2 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;

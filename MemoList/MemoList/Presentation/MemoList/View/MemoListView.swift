@@ -46,7 +46,7 @@ class MemoListView: BaseView {
         tableView.snp.makeConstraints {
             $0.top.equalTo(0)
             $0.trailing.leading.equalTo(0)
-            $0.bottom.equalTo(0)
+            $0.bottom.equalTo(-100)
             
         }
     }
