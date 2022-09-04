@@ -319,6 +319,8 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        header.textLabel?.textColor = UIColor(named: "sectionColor")
+
     }
     // 왼쪽 스와이핑(delete)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -394,7 +396,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                     else{
                         repository.updateFavorite(item: fixMemo[indexPath.row])
                         notfixMemo = repository.notFixFetch()
-                        print(notfixMemo)
                     }
                 }
                 else{
@@ -406,7 +407,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                     repository.updateFavorite(item: notfixMemo[indexPath.row])}
                     fixMemo = repository.fixFetch()
             }
-//            allTasks = repository.fetch()
         }
         
         if self.isFiltering {

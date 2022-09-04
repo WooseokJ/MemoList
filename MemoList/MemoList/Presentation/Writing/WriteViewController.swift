@@ -67,7 +67,6 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
     //확인버튼 클릭시
     @objc func tapConfirm() {
         let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
-        
         // 제목X 내용 X
         guard text.count != 0  else {
             addData(title: "", content: "")
@@ -83,10 +82,12 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
             return
         }
         let content = text[1...text.count-1].joined()
+        
         // 제목,내용 O
         addData(title: String(text[0]), content: content)
         self.navigationController?.popViewController(animated: true)
     }
+    
     // 작성하기로 데이터 삽입
     func addData(title: String, content: String) {
         
@@ -141,7 +142,6 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
         do {
             try localRealm.write {
                 localRealm.create(RealmModel.self, value: ["objectId": objectid, "title": title, "content":content, "regDate": Date()], update: .modified)
-
             }
         } catch let error {
             print(error)
