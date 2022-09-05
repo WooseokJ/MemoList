@@ -13,14 +13,13 @@ import SnapKit
 final class MemoListViewController: BaseViewController {
     
     let memoListView = MemoListView()
-    let searchController = UISearchController(searchResultsController: nil)
-
-    var writeButton: UIBarButtonItem!
     
     override func loadView() {
         super.view = memoListView
     }
-    
+
+    //MARK: 변수 선언
+    var writeButton: UIBarButtonItem! //툴바 items
     
     //MARK: Realm관련
     let repository = RealmRepository()
@@ -52,6 +51,8 @@ final class MemoListViewController: BaseViewController {
     }
     
     //MARK: 서치바 필터관련
+    let searchController = UISearchController(searchResultsController: nil)
+
     var filteredArr:  Results<RealmModel>! {
         didSet {
             memoListView.tableView.reloadData()
@@ -69,8 +70,6 @@ final class MemoListViewController: BaseViewController {
     //MARK: tableview ReLoad
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
-        //서치바+네비바
         setupSearchController()
         allTasks = repository.fetch()
     }
@@ -78,19 +77,7 @@ final class MemoListViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // toolbar 관련
-        writeButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(tapWriteButton))
-        writeButton.tintColor = Constants.button.color
-        var items = [UIBarButtonItem]()
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        
-        [flexibleSpace,flexibleSpace,flexibleSpace,flexibleSpace,writeButton].forEach {
-            items.append($0)
-        }
-        
-        
-        self.toolbarItems = items
+        setToolbarDesign()
         
         fixMemo = RealmRepository().fixFetch()
         notfixMemo = RealmRepository().notFixFetch()
@@ -104,13 +91,26 @@ final class MemoListViewController: BaseViewController {
         print(repository.localRealm.configuration.fileURL!)
         popupPresent()
     }
-    @objc func buttonClicked() {
-        dismiss(animated: true)
+    //MARK: 툴바 디자인 설정
+    func setToolbarDesign() {
+        // toolbar 관련
+        writeButton = UIBarButtonItem(image: UIImage(systemName: "square.and.pencil"), style: .plain, target: self, action: #selector(writeButtonClicked))
+        writeButton.tintColor = Constants.button.color
+        var items = [UIBarButtonItem]()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+        
+        [flexibleSpace,flexibleSpace,flexibleSpace,flexibleSpace,writeButton].forEach {
+            items.append($0)
+        }
+        
+        self.toolbarItems = items
+        
     }
     
     
-    //작성하기 버튼 클릭시
-    @objc func tapWriteButton(){
+    //MARK: 작성하기 버튼 클릭시
+    @objc func writeButtonClicked(){
         let vc = WriteViewController()
         transition(vc, transitionStyle: .push)
         navigationItem.backButtonTitle = navigationItem.title
@@ -121,7 +121,7 @@ final class MemoListViewController: BaseViewController {
         vc.select = false //작성하기
     }
     
-    // 서치바+네비바
+    //MARK:  서치바+네비바
     func setupSearchController() {
         searchController.searchBar.placeholder = "검색"
         searchController.searchResultsUpdater = self
@@ -133,7 +133,7 @@ final class MemoListViewController: BaseViewController {
         view.backgroundColor = UIColor(named: "bgColor")
     }
     
-    //팝업 화면 띄우기
+    //MARK: 팝업 화면 띄우기
     func popupPresent() {
         guard !UserDefaults.standard.bool(forKey: "first") else{
             return
@@ -150,7 +150,7 @@ final class MemoListViewController: BaseViewController {
 extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     
-    //색션 개수
+    //MARK: 색션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
         // 서치바로 검색할떄
         if self.isFiltering {
@@ -173,7 +173,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    //색션 타이틀
+    //MARK: 색션 타이틀
     func tableView(_ : UITableView, titleForHeaderInSection section: Int) -> String? {
         // 서치바로 검색할떄 타이틀명
         if self.isFiltering{
@@ -190,7 +190,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // row 개수
+    //MARK:  row 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // 서치바로 검색할떄
@@ -207,12 +207,12 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // row 높이
+    //MARK:  row 높이
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height / 14
     }
     
-    // cell 그리기
+    //MARK: cell 그리기
     @discardableResult
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MemoListTableViewCell.reuseIdentifier, for: indexPath) as? MemoListTableViewCell else {
@@ -259,7 +259,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    //MARK: 검색창 따라 셀 제목,내용 색상변화
+    //MARK: 검색창 따라 셀 제목 색상변화
     func searchTitleText(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
         //MARK: 타이틀(제목)
         let title: String = object[index].title
@@ -271,7 +271,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return titleString
     }
-    
+    //MARK: 검색창 따라 셀 내용 색상변화
     func searchContentColor(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
         //MARK: 컨텐츠(내용)
         let content: String = object[index].content
@@ -285,7 +285,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    // 날짜 계산
+    //MARK:  날짜 계산
     func dateCalc(date: Date) -> String {
         let dateFormat = DateFormatter()
         dateFormat.locale = Locale(identifier: "ko_KR")// 한국 시간 지정
@@ -315,14 +315,14 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    // 테이블뷰 색션 텍스트 정보
+    //MARK:  테이블뷰 색션 텍스트 정보
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
         header.textLabel?.textColor = UIColor(named: "sectionColor")
 
     }
-    // 왼쪽 스와이핑(delete)
+    //MARK:  왼쪽 스와이핑(delete)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if self.isFiltering {
             let item = filteredArr[indexPath.row]
@@ -349,7 +349,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    // 삭제 앨럿 띄우기
+    //MARK: 삭제 앨럿 띄우기
     func showDeleteAlert(message: String, item: RealmModel) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default)
@@ -436,7 +436,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    // 셀 클릭시
+    //MARK: 셀 클릭시
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.isFiltering {
             modifyTextView(object: filteredArr, tag: indexPath.row,backTitle: "검색")
@@ -450,7 +450,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             else {modifyTextView(object: notfixMemo, tag: indexPath.row,backTitle: "메모")}
         }
     }
-    // 셀 클식시 textview 함수구현
+    //MARK: 셀 클식시 textview 함수구현
     func modifyTextView(object: Results<RealmModel>, tag: Int, backTitle: String) {
         let vc = WriteViewController()
         transition(vc, transitionStyle: .push)
@@ -461,8 +461,9 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
 extension MemoListViewController: UISearchResultsUpdating, UISearchControllerDelegate {
-    
+    //MARK: 서치바 검색할떄마다
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         self.filteredArr = self.allTasks.filter("title CONTAINS[c] %@ OR content CONTAINS[c] %@",text,text)

@@ -15,6 +15,7 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
     override func loadView() {
         super.view = writeView
     }
+    
     //MARK: realm 관련
     let localRealm = try! Realm()
     var allTasks: Results<RealmModel>! {
@@ -22,9 +23,9 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
             print("Tasks Changed")
         }
     }
-    
+    //MARK: 변수선언
     var select: Bool? = nil // 작성하기,수정하기 판단
-    var objectid: ObjectId?
+    var objectid: ObjectId? // 객체아이디 받아와 수정시 사용
     
     override func viewWillAppear(_ animated: Bool) {
         self.writeView.textView.becomeFirstResponder() //키보드 자동으로 띄우기
@@ -44,19 +45,18 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
         self.navigationController?.navigationBar.tintColor = Constants.button.color
         self.navigationItem.largeTitleDisplayMode = .never
         guard select == false else {
-            // 수정하기화면
-            let confirm = UIBarButtonItem(title: "수정", style: .plain, target: self, action: #selector(tapModify))
-            let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tapShared))
-            confirm.tintColor = Constants.button.color
-            shared.tintColor = Constants.button.color
-            navigationItem.rightBarButtonItems = [confirm,shared]
-            navigationItem.rightBarButtonItem?.tintColor = Constants.button.color
-            
+            //MARK: 수정하기화면
+            setNaviBarDesign(title: "수정", imageName: "square.and.arrow.up")
             return
         }
-        //작성하기화면
+        //MARK: 작성하기화면
+        setNaviBarDesign(title: "확인", imageName: "square.and.arrow.up")
+
+    }
+    //MARK: 서치바 디자인
+    func setNaviBarDesign(title: String, imageName: String) {
         let confirm = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(tapConfirm))
-        let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(tapShared))
+        let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonClicked))
         confirm.tintColor = Constants.button.color
         shared.tintColor = Constants.button.color
         navigationItem.rightBarButtonItems = [confirm,shared]
@@ -64,7 +64,7 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
     
     
     
-    //확인버튼 클릭시
+    //MARK: 확인버튼 클릭시
     @objc func tapConfirm() {
         let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         // 제목X 내용 X
@@ -88,7 +88,7 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
-    // 작성하기로 데이터 삽입
+    //MARK: 작성하기로 데이터 삽입
     func addData(title: String, content: String) {
         
         let task = RealmModel(title: title, content: content, regDate: Date())
@@ -102,17 +102,24 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
         self.navigationController?.popViewController(animated: true)
      }
     
-    //공유하기버튼클릭
-    @objc func tapShared() {
-        backupButtonClickedStart()
+    //MARK: 공유하기버튼클릭
+    @objc func shareButtonClicked() {
+        guard let text = WriteView().textView.text else { return }
+        var shareObject: [String] = []
+        shareObject.append(text)
+        let activityViewController = UIActivityViewController(activityItems : shareObject, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        activityViewController.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook,UIActivity.ActivityType.postToTwitter,UIActivity.ActivityType.mail]
+        self.present(activityViewController, animated: true, completion: nil)
+            
     }
-    //수정하기 버튼 클릭
+    //MARK: 수정하기 버튼 클릭
     @objc func tapModify() {
         modify()
         self.navigationController?.popViewController(animated: true)
 
     }
-    
+    //MARK: 수정하기 기능
     func modify() {
         let text = writeView.textView.text.split(separator: "\n",maxSplits: 1)
         // 제목X 내용 X
@@ -133,7 +140,7 @@ final class WriteViewController: BaseViewController ,UITextFieldDelegate {
     }
     
     
-    //수정하기로 데이터 수정
+    //MARK: 수정하기로 데이터 수정
     func modifyData(title: String, content: String, text:  [String.SubSequence]) {
         guard let objectid = objectid else {
             return
