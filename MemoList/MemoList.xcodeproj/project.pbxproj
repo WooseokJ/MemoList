@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E107FE8328C306F1004EA13B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = E107FE8228C306F1004EA13B /* Zip */; };
 		E107FE8528C32313004EA13B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107FE8428C32313004EA13B /* ViewController.swift */; };
+		E178173A28C9D449001EFD37 /* MemoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178173928C9D449001EFD37 /* MemoEnum.swift */; };
+		E178173C28CA680D001EFD37 /* WriteViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178173B28CA680D001EFD37 /* WriteViewController+Extension.swift */; };
 		E188856628C76B8A006C1F2A /* MemoListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188856528C76B8A006C1F2A /* MemoListViewController+Extension.swift */; };
 		E1EE877728C1E4A700FB08B8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877628C1E4A700FB08B8 /* PopUpViewController.swift */; };
 		E1EE877928C1E4BC00FB08B8 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877828C1E4BC00FB08B8 /* PopUpView.swift */; };
@@ -32,12 +34,13 @@
 		E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */; };
 		E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8028BF6FB900492CF2 /* WriteView.swift */; };
 		E1F26A8328BF77F600492CF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8228BF77F600492CF2 /* Color.swift */; };
-		E1F26A8528BF786800492CF2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8428BF786800492CF2 /* Constants.swift */; };
 		E1F26A8728BF85F700492CF2 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8628BF85F700492CF2 /* RealmRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E107FE8428C32313004EA13B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E178173928C9D449001EFD37 /* MemoEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoEnum.swift; sourceTree = "<group>"; };
+		E178173B28CA680D001EFD37 /* WriteViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WriteViewController+Extension.swift"; sourceTree = "<group>"; };
 		E188856528C76B8A006C1F2A /* MemoListViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoListViewController+Extension.swift"; sourceTree = "<group>"; };
 		E1EE877628C1E4A700FB08B8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E1EE877828C1E4BC00FB08B8 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		E1F26A8028BF6FB900492CF2 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
 		E1F26A8228BF77F600492CF2 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		E1F26A8428BF786800492CF2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E1F26A8628BF85F700492CF2 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				E1F26A8228BF77F600492CF2 /* Color.swift */,
-				E1F26A8428BF786800492CF2 /* Constants.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -160,6 +161,7 @@
 			children = (
 				E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */,
 				E188856528C76B8A006C1F2A /* MemoListViewController+Extension.swift */,
+				E178173B28CA680D001EFD37 /* WriteViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				E1F26A5828BF242100492CF2 /* MemoListView.swift */,
+				E178173928C9D449001EFD37 /* MemoEnum.swift */,
 				E1F26A5A28BF243900492CF2 /* MemoListTableViewCell.swift */,
 			);
 			path = View;
@@ -333,12 +336,12 @@
 				E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */,
 				E1F26A5928BF242100492CF2 /* MemoListView.swift in Sources */,
 				E1EE877928C1E4BC00FB08B8 /* PopUpView.swift in Sources */,
-				E1F26A8528BF786800492CF2 /* Constants.swift in Sources */,
 				E1F26A5B28BF243900492CF2 /* MemoListTableViewCell.swift in Sources */,
 				E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */,
 				E1F26A8328BF77F600492CF2 /* Color.swift in Sources */,
 				E1F26A3728BF1FB800492CF2 /* AppDelegate.swift in Sources */,
 				E188856628C76B8A006C1F2A /* MemoListViewController+Extension.swift in Sources */,
+				E178173A28C9D449001EFD37 /* MemoEnum.swift in Sources */,
 				E1F26A5E28BF244F00492CF2 /* BaseViewController.swift in Sources */,
 				E1F26A5628BF23D400492CF2 /* RealmModel.swift in Sources */,
 				E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */,
@@ -347,6 +350,7 @@
 				E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */,
 				E107FE8528C32313004EA13B /* ViewController.swift in Sources */,
 				E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */,
+				E178173C28CA680D001EFD37 /* WriteViewController+Extension.swift in Sources */,
 				E1F26A3928BF1FB800492CF2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

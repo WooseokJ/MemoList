@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-extension Constants {
+enum Constants {
     enum button {
         static let color = UIColor(red: 252/255, green: 204/255, blue: 29/255, alpha: 1)
     }

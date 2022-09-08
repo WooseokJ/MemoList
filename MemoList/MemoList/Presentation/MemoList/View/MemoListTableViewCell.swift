@@ -8,6 +8,7 @@
 import UIKit
 
 class MemoListTableViewCell: BaseTableViewCell {
+    
     //MARK: 연결
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -58,7 +59,7 @@ class MemoListTableViewCell: BaseTableViewCell {
         title.snp.makeConstraints {
             $0.top.equalTo(10)
             $0.leading.equalTo(10)
-            $0.height.equalTo(self.snp.height).multipliedBy(0.2)
+            $0.height.equalTo(self.snp.height).multipliedBy(0.26)
             $0.trailing.equalTo(contentLabel.snp.trailing)
         }
         

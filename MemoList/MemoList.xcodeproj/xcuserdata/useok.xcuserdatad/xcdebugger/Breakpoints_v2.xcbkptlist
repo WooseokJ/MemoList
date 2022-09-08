@@ -14,8 +14,8 @@
             filePath = "MemoList/Utils/Model/RealmRepository.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "updateFavorite(item:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,140 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B783B649-70DD-4750-9CF6-2500723D427B"
-            shouldBeEnabled = "No"
+            uuid = "B14649FA-EF73-4059-B261-5A74A131CBB9"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
+            filePath = "MemoList/Presentation/Writing/WriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "allTasks"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - 751230764024f21f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.allTasks.getter : Swift.Optional&lt;RealmSwift.Results&lt;MemoList.RealmModel&gt;&gt;"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "90">
-               </Location>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - 5eb876743533a2eb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.allTasks.setter : Swift.Optional&lt;RealmSwift.Results&lt;MemoList.RealmModel&gt;&gt;"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "121">
-               </Location>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - d714e6f0e853561a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.allTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;MemoList.RealmModel&gt;&gt;"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - 382283bc9ae3cce0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.allTasks.modify : Swift.Optional&lt;RealmSwift.Results&lt;MemoList.RealmModel&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "17">
-               </Location>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - b68a96675c207d9"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; MemoList.MemoListViewController"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "495">
-               </Location>
-               <Location
-                  uuid = "B783B649-70DD-4750-9CF6-2500723D427B - a6722a04bc1729de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MemoList.MemoListViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;MemoList.MemoListViewController&gt;"
-                  moduleName = "MemoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/useok/Documents/GitHub/MemoList/MemoList/MemoList/Presentation/MemoList/MemoListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "413">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3AF280BF-2CCE-4F31-AF3A-0937DDA61F9B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
-            landmarkName = "tableView(_:commit:forRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F3323E6C-7DD2-4BA7-ABCC-3A48A0339678"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MemoList/Presentation/MemoList/MemoListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
-            landmarkName = "tableView(_:commit:forRowAt:)"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
