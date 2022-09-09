@@ -47,7 +47,6 @@ class MemoListView: BaseView {
             $0.top.equalTo(0)
             $0.trailing.leading.equalTo(0)
             $0.bottom.equalTo(-100)
-            
         }
     }
 }

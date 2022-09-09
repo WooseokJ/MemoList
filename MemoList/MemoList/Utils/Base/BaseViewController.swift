@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Zip
 import RealmSwift
 
 class BaseViewController: UIViewController {

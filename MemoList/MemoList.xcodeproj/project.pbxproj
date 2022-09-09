@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E107FE8328C306F1004EA13B /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = E107FE8228C306F1004EA13B /* Zip */; };
 		E107FE8528C32313004EA13B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E107FE8428C32313004EA13B /* ViewController.swift */; };
 		E178173A28C9D449001EFD37 /* MemoEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178173928C9D449001EFD37 /* MemoEnum.swift */; };
 		E178173C28CA680D001EFD37 /* WriteViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E178173B28CA680D001EFD37 /* WriteViewController+Extension.swift */; };
+		E17E955F28CB39590000CBE2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E17E955E28CB39590000CBE2 /* Realm */; };
+		E17E956128CB39590000CBE2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E17E956028CB39590000CBE2 /* RealmSwift */; };
+		E17E956428CB39740000CBE2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E17E956328CB39740000CBE2 /* SnapKit */; };
 		E188856628C76B8A006C1F2A /* MemoListViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E188856528C76B8A006C1F2A /* MemoListViewController+Extension.swift */; };
 		E1EE877728C1E4A700FB08B8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877628C1E4A700FB08B8 /* PopUpViewController.swift */; };
 		E1EE877928C1E4BC00FB08B8 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EE877828C1E4BC00FB08B8 /* PopUpView.swift */; };
@@ -26,11 +28,8 @@
 		E1F26A5E28BF244F00492CF2 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5D28BF244F00492CF2 /* BaseViewController.swift */; };
 		E1F26A6028BF245700492CF2 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A5F28BF245700492CF2 /* BaseView.swift */; };
 		E1F26A6428BF248500492CF2 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A6328BF248500492CF2 /* BaseTableViewCell.swift */; };
-		E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A6828BF2EE800492CF2 /* SnapKit */; };
 		E1F26A7128BF34EF00492CF2 /* identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7028BF34EF00492CF2 /* identifier.swift */; };
 		E1F26A7628BF46F100492CF2 /* Transition+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7528BF46F100492CF2 /* Transition+Extension.swift */; };
-		E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7928BF4DFA00492CF2 /* Realm */; };
-		E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E1F26A7B28BF4DFA00492CF2 /* RealmSwift */; };
 		E1F26A7E28BF4E2500492CF2 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A7D28BF4E2500492CF2 /* WriteViewController.swift */; };
 		E1F26A8128BF6FB900492CF2 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8028BF6FB900492CF2 /* WriteView.swift */; };
 		E1F26A8328BF77F600492CF2 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F26A8228BF77F600492CF2 /* Color.swift */; };
@@ -71,10 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1F26A7C28BF4DFA00492CF2 /* RealmSwift in Frameworks */,
-				E1F26A7A28BF4DFA00492CF2 /* Realm in Frameworks */,
-				E1F26A6928BF2EE800492CF2 /* SnapKit in Frameworks */,
-				E107FE8328C306F1004EA13B /* Zip in Frameworks */,
+				E17E956428CB39740000CBE2 /* SnapKit in Frameworks */,
+				E17E956128CB39590000CBE2 /* RealmSwift in Frameworks */,
+				E17E955F28CB39590000CBE2 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,10 +264,9 @@
 			);
 			name = MemoList;
 			packageProductDependencies = (
-				E1F26A6828BF2EE800492CF2 /* SnapKit */,
-				E1F26A7928BF4DFA00492CF2 /* Realm */,
-				E1F26A7B28BF4DFA00492CF2 /* RealmSwift */,
-				E107FE8228C306F1004EA13B /* Zip */,
+				E17E955E28CB39590000CBE2 /* Realm */,
+				E17E956028CB39590000CBE2 /* RealmSwift */,
+				E17E956328CB39740000CBE2 /* SnapKit */,
 			);
 			productName = MemoList;
 			productReference = E1F26A3328BF1FB800492CF2 /* MemoList.app */;
@@ -300,9 +297,8 @@
 			);
 			mainGroup = E1F26A2A28BF1FB800492CF2;
 			packageReferences = (
-				E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */,
-				E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */,
+				E17E955D28CB39590000CBE2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				E17E956228CB39730000CBE2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = E1F26A3428BF1FB800492CF2 /* Products */;
 			projectDirPath = "";
@@ -501,6 +497,7 @@
 				DEVELOPMENT_TEAM = 5MHUF29PV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "조우석";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -530,6 +527,7 @@
 				DEVELOPMENT_TEAM = 5MHUF29PV8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MemoList/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "조우석";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -573,23 +571,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/Zip.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		E17E955D28CB39590000CBE2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
@@ -597,28 +579,31 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		E17E956228CB39730000CBE2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E107FE8228C306F1004EA13B /* Zip */ = {
+		E17E955E28CB39590000CBE2 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E107FE8128C306F0004EA13B /* XCRemoteSwiftPackageReference "Zip" */;
-			productName = Zip;
-		};
-		E1F26A6828BF2EE800492CF2 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E1F26A6728BF2EE800492CF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		E1F26A7928BF4DFA00492CF2 /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = E17E955D28CB39590000CBE2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		E1F26A7B28BF4DFA00492CF2 /* RealmSwift */ = {
+		E17E956028CB39590000CBE2 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E1F26A7828BF4DFA00492CF2 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = E17E955D28CB39590000CBE2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		E17E956328CB39740000CBE2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E17E956228CB39730000CBE2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

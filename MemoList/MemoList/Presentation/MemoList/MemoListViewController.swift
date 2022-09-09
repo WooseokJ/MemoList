@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import SwiftUI
 import SnapKit
 
 final class MemoListViewController: BaseViewController {
