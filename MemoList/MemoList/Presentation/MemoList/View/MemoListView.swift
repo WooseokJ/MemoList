@@ -144,7 +144,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK:  테이블뷰 색션 텍스트 정보
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.font = UIFont.systemFont(ofSize: 23, weight: .bold)
+        header.textLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
         header.textLabel?.textColor = UIColor(named: "sectionColor")
         
     }
