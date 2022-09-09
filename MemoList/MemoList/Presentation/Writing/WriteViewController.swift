@@ -42,19 +42,23 @@ final class WriteViewController: BaseViewController, UITextFieldDelegate  {
     
     override func viewWillDisappear(_ animated: Bool) {
         modify()
-        allTasks = RealmRepository().fetch()
+        allTasks = repository.fetch()
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let select = select else {
+            return
+        }
 
         guard select == false else {
             //MARK: 수정하기화면
-            setNaviBarDesign(title: "수정", imageName: "square.and.arrow.up")
+            setNaviBarDesign(title: "수정", imageName: "square.and.arrow.up", select: select)
             return
         }
         //MARK: 작성하기화면
-        setNaviBarDesign(title: "확인", imageName: "square.and.arrow.up")
+        setNaviBarDesign(title: "확인", imageName: "square.and.arrow.up", select: select)
     }
 }

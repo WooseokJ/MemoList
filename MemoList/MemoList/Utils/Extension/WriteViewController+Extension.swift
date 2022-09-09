@@ -10,10 +10,18 @@ import UIKit
 
 extension WriteViewController {
     
-    //MARK: 네비바 디자인
-    internal func setNaviBarDesign(title: String, imageName: String) {
-        let confirm = UIBarButtonItem(title: "확인", style: .plain, target: self, action: #selector(tapConfirm))
-        let shared = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .plain, target: self, action: #selector(shareButtonClicked))
+    //MARK: 네비바 확디자인
+    internal func setNaviBarDesign(title: String, imageName: String, select: Bool) {
+        guard select == false else {
+            let confirm = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(tapModify))
+            let shared = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(shareButtonClicked))
+            confirm.tintColor = Constants.button.color
+            shared.tintColor = Constants.button.color
+            navigationItem.rightBarButtonItems = [confirm,shared]
+            return
+        }
+        let confirm = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(tapConfirm))
+        let shared = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(shareButtonClicked))
         confirm.tintColor = Constants.button.color
         shared.tintColor = Constants.button.color
         navigationItem.rightBarButtonItems = [confirm,shared]
