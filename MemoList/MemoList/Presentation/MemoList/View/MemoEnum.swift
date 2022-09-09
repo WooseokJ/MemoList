@@ -7,22 +7,7 @@
 
 import Foundation
 
-enum FilterCheck: CaseIterable { // 열거형 타입 배열처럼 다루기
-
-    case filter, notfilter
-    var check: Bool {
-        switch self {
-        case .filter:
-            return true
-        case .notfilter:
-            return false
-        }
-    }
-}
-
-
-
-enum fixCheck: CaseIterable {
+enum fixCheck: CaseIterable { // 열거형 타입 배열처럼 다루기
     case fix,notfix
     var check: Bool {
         switch self {

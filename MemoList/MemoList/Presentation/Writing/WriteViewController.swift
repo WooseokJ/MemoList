@@ -34,6 +34,9 @@ final class WriteViewController: BaseViewController, UITextFieldDelegate  {
         navigationController?.isToolbarHidden = true
         navigationController?.navigationBar.tintColor = Constants.button.color
         navigationItem.largeTitleDisplayMode = .never
+        let appearance = UINavigationBarAppearance()
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance?.backgroundColor = UIColor(named: "bgColor") //다크모드대응
     }
     

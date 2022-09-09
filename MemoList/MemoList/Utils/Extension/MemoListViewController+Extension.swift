@@ -13,7 +13,7 @@ import UIKit
 extension MemoListViewController {
     
     //MARK: 검색창 따라 셀 제목 색상변화
-    internal func searchTitleText(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
+    internal func searchTextColorChanged(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  MemoListTableViewCell {
         //MARK: 타이틀(제목)
         let title: String = object[index].title
         let titleString = NSMutableAttributedString(string: title)
@@ -22,10 +22,7 @@ extension MemoListViewController {
             titleFirstIndex = title.distance(from: title.startIndex, to: titleFirstRange.lowerBound)
             titleString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: titleFirstIndex, length: searchController.searchBar.text?.count ?? 0))
         }
-        return titleString
-    }
-    //MARK: 검색창 따라 셀 내용 색상변화
-    internal func searchContentColor(object:  Results<RealmModel>,index: Int, cell: MemoListTableViewCell) ->  NSMutableAttributedString {
+        
         //MARK: 컨텐츠(내용)
         let content: String = object[index].content
         let contentString = NSMutableAttributedString(string: content)
@@ -34,10 +31,17 @@ extension MemoListViewController {
             contentFirstIndex = content.distance(from: content.startIndex, to: contentFirstRange.lowerBound)
             contentString.addAttribute(.foregroundColor, value: UIColor.systemOrange, range: NSRange(location: contentFirstIndex, length: searchController.searchBar.text?.count ?? 0))
         }
-        return contentString
+        
+        cell.contentLabel.attributedText = contentString
+        cell.title.attributedText = titleString
+        cell.date.text = dateCalc(date: object[index].regDate)
+        cell.selectionStyle = .none
+
+        return cell
+
     }
-    
-    
+
+
     //MARK:  날짜 계산
     internal func dateCalc(date: Date) -> String {
         let dateFormat = DateFormatter()
@@ -117,6 +121,28 @@ extension MemoListViewController {
         vc.modalTransitionStyle = .crossDissolve
         transition(vc, transitionStyle: .present)
     }
+    //MARK: 삭제 하기 
+    internal func deleteCheck(object: Results<RealmModel>!,tag: Int ) {
+        let item = object[tag]
+        showDeleteAlert(message: "정말로 삭제할거냐?", item: item)
+
+    }
+    
+    //MARK: 삭제 앨럿 띄우기
+    internal func showDeleteAlert(message: String, item: RealmModel) {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        let delete = UIAlertAction(title: "삭제", style: .destructive) { action in
+            try! self.repository.localRealm.write{
+                self.repository.localRealm.delete(item)
+            }
+            self.allTasks = self.repository.fetch()
+        }
+        alert.addAction(ok)
+        alert.addAction(delete)
+        self.present(alert, animated: true)
+    }
+    
 }
 
 extension MemoListViewController: UISearchResultsUpdating, UISearchControllerDelegate {

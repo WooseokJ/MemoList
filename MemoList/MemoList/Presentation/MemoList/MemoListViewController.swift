@@ -35,17 +35,17 @@ final class MemoListViewController: BaseViewController {
             print("tasks 데이터 변경")
         }
     }
-    
+
+    internal let ifFixed = fixCheck.allCases[0].check
+
 
     internal var fixMemo: Results<RealmModel>! {
         didSet{
-            print("fixMemo")
             memoListView.tableView.reloadData()
         }
     }
     internal var notfixMemo: Results<RealmModel>! {
         didSet{
-            print("notfixMemo")
             memoListView.tableView.reloadData()
         }
     }
@@ -87,7 +87,7 @@ final class MemoListViewController: BaseViewController {
         //테이블뷰 연결
         memoListView.tableView.delegate = self
         memoListView.tableView.dataSource = self
-        memoListView.tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: "MemoListTableViewCell")
+        memoListView.tableView.register(MemoListTableViewCell.self, forCellReuseIdentifier: MemoListTableViewCell.reuseIdentifier)
         
         // realm 파일 경로
         print(repository.localRealm.configuration.fileURL!)

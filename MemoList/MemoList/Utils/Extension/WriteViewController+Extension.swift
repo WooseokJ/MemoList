@@ -23,7 +23,7 @@ extension WriteViewController {
     
     //MARK: 공유하기버튼클릭
     @objc internal func shareButtonClicked() {
-        guard let text = WriteView().textView.text else { return }
+        guard let text = writeView.textView.text else { return }
         var shareObject: [String] = []
         shareObject.append(text)
         let activityViewController = UIActivityViewController(activityItems : shareObject, applicationActivities: nil)
