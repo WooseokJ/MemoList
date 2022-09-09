@@ -18,7 +18,7 @@ final class PopUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         popupView.button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
-        self.view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+        self.view.backgroundColor = Constants.background.color
     }
     @objc func buttonClicked() {
         UserDefaults.standard.set(true, forKey: "first")
