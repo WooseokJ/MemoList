@@ -24,7 +24,7 @@ extension MemoListViewController {
         }
         
         //MARK: 컨텐츠(내용)
-        let content: String = object[index].content
+        let content: String = object[index].contentChanged
         let contentString = NSMutableAttributedString(string: content)
         var contentFirstIndex: Int = 0
         if let contentFirstRange = content.range(of: "\(searchController.searchBar.text!)", options: .caseInsensitive) {

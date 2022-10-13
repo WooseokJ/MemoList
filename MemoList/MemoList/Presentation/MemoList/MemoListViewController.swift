@@ -74,9 +74,20 @@ final class MemoListViewController: BaseViewController {
         allTasks = repository.fetch()
     }
     
+    let localRealm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        do {
+            let version = try schemaVersionAtURL(localRealm.configuration.fileURL!) // url에 들어가는 스키마 버전이 몇버전이냐
+            print(version)
+        } catch {
+            print(error)
+        }
+
+
+        
         // toolbar 디자인
         setToolbarDesign()
         

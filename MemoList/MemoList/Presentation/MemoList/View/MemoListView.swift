@@ -270,7 +270,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         transition(vc, transitionStyle: .push)
         navigationItem.backButtonTitle = backTitle
         vc.select = true //수정하기
-        vc.writeView.textView.text = object[tag].title + "\n" + object[tag].content
+        vc.writeView.textView.text = object[tag].title + "\n" + object[tag].contentChanged
         vc.objectid = object[tag].objectId
     }
     
